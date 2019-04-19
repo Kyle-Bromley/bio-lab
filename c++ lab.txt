@@ -1,0 +1,86 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+
+
+
+
+
+
+int main() {
+	int tails = 1;
+	int head = 2;
+	int randomNumber;
+	int headcount = 0;
+	int tailcount = 0;
+
+	srand(time(NULL));
+	for (int i = 0; i < 10000; i++) {
+		
+		randomNumber = 1 + rand() % 2;
+		
+		if (randomNumber == 1) {
+			headcount++;
+		}
+		else {
+			tailcount++;
+		}
+		
+	}
+
+	double hper = (headcount / 10000.00) * 100;
+	double tper = (tailcount / 10000.00) * 100;
+
+	cout << "Head amount: " <<  headcount << endl;
+	cout << "Head percentage: " << hper << "%"  << endl;
+	cout << "Tail amount: " << tailcount << endl;
+	cout << "Tail percentage: " << tper << "%" << endl;
+
+	
+
+
+
+
+	float prob = 0;
+	float botfacp1 = 0;
+	float botfacp2 = 0;
+	float botfact = 0;
+	float topfac = 0;
+	int n = 4;
+	int x = 1;
+
+
+	for (int i = n; i > 0; i--) {
+		if (i == n)
+			topfac = n;
+		else
+			topfac *= i;
+	}
+
+	for (int i = (n-x); i > 0; i--)
+	{
+		if (i == (n - x))
+			botfacp1 = (n - x);
+		else
+		{
+			botfacp1 *= i;
+		}
+	}
+
+	for (int i = x; i > 0; i--) {
+		if (i == x)
+			botfacp2 = x;
+		else
+			botfacp2 *= i;
+	}
+
+	botfact = botfacp1 * botfacp2;
+	cout << "Test Fact" << endl;
+	cout << botfact << endl;
+	cout << topfac << endl;
+
+	system("PAUSE");
+
+	return 0;
+}
